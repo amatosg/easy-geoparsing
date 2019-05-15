@@ -3,29 +3,47 @@ easy-geoparsing
 
 Easy-to-use module for streamlined parsing of countries from plaintext locations and top-level domains, plus manipulation of country names and ISO 2 & 3 character codes.
 
+Implementation relies on:
+
+- the [RESTcountries](https://restcountries.eu/) API
+- the [geotext](https://pypi.org/project/geotext/) module
+
 ## installation
 
-In future we will make this public and put it on PyPI.
+To install from the command line via [pip](https://pip.pypa.io/en/stable/), do:
 
-## setup
+`pip install easy-geoparsing`
+
+To upgrade to the latest version via `pip` do:
+
+`pip install easy-geoparsing --upgrade`
+
+To use via [pipenv](https://docs.pipenv.org/en/latest/) put the following in your Pipfile:
+
+```
+[packages]
+easy-geoparsing = ">=1.0.0"
+```
+
+## development
 
 If you've cloned the repository, the best way to make it work is using `pipenv`
 
-To get it, you can do:
+If you don't yet have `pipenv`, you can use `pip` to install it from the command line:
 
 `pip install pipenv --upgrade`
 
-Then, in the top level directory `easy-geoparsing` do:
+Then, in the top level directory of this repository, `easy-geoparsing`, do:
 
 `pipenv install --dev`
 
-(The `--dev` flag will install pytest into the virtual environment)
+This will create the virtual environment and install the requirements (viewable in the Pipfile). The `--dev` flag will install packages needed for testing etc.
 
 ## usage
 
 ### GETTING STARTED
 
-Do the following to get the parser utilities:
+Do the following to get the parser utilities, noting that creating an instance of `EasyCountryParser` will automatically download the country data payload from RESTcountries and set up all the resources. Speed will therefore depend on your internet connection, but the payload is not large.
 
 ```
 from easy_geoparsing.parser import EasyCountryParser
