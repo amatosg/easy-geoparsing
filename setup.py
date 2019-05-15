@@ -80,6 +80,7 @@ setup(
     name = 'easy-geoparsing',
     version = get_version('easy_geoparsing'),
     install_requires = get_requirements(),
+    download_url = "https://github.com/apolitical/easy-geoparsing/archive/v1.0.0.tar.gz",
     packages = ['easy_geoparsing'],
     description = 'Easy-to-use module for streamlined parsing of countries from locations',
     long_description = get_long_description_from_README(),
