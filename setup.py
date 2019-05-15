@@ -1,6 +1,7 @@
 from os import path
 
-THIS_DIRECTORY = path.abspath(path.dirname(__file__))
+MODULE_NAME = "easy-geoparsing"
+PACKAGE_NAME = "easy_geoparsing"
 
 try:
     from setuptools import setup
@@ -27,9 +28,7 @@ def get_requirements():
     Read [packages] from the Pipfile and convert to a requirements list
     """
 
-    filepath = path.join(THIS_DIRECTORY, "Pipfile")
-
-    with open(filepath, "r+") as pipfile:
+    with open("Pipfile") as pipfile:
         pip_contents = pipfile.read()
 
     requirements_body = pip_contents.split("[packages]")[-1]
@@ -43,10 +42,10 @@ def get_version(package_name):
     the value of __version__
     If not found, returns "0.0.1" and warns you to supply a version
     """
-    package_path = path.join(THIS_DIRECTORY, package_name)
-    initfile_path = path.join(THIS_DIRECTORY, package_name, "__init__.py")
 
-    pkg_is_there = path.isdir(package_path)
+    initfile_path = path.join(package_name, "__init__.py")
+
+    pkg_is_there = path.isdir(package_name)
     file_is_there = path.isfile(initfile_path)
 
     if not pkg_is_there:
@@ -63,7 +62,7 @@ def get_version(package_name):
             )
         )
 
-    with open(initfile_path, "r+") as pyinit:
+    with open(initfile_path) as pyinit:
         pyinit_cont = pyinit.read().split('\n')
 
     processed_contents = [
@@ -78,22 +77,30 @@ def get_version(package_name):
 
     return pkg_version
 
+def get_download_url(module_name, package_name):
+    """
+    Returns the download URL with the correct version
+    """
+    return "https://github.com/apolitical/{m}/archive/v{v}.tar.gz".format(
+        m = module_name,
+        v = get_version(package_name)
+    )
+
 def get_long_description_from_README():
     """
     Returns the contents of README.md as a character string
     """
-    filepath = path.join(THIS_DIRECTORY, "README.md")
 
-    with open(filepath, "r+") as file_object:
+    with open("README.md") as file_object:
         long_description = file_object.read()
     return long_description
 
 setup(
-    name = "easy-geoparsing",
-    version = get_version("easy_geoparsing"),
+    name = MODULE_NAME,
+    version = get_version(PACKAGE_NAME),
     install_requires = get_requirements(),
-    download_url = "https://github.com/apolitical/easy-geoparsing/archive/v1.1.2.tar.gz",
-    packages = ["easy_geoparsing"],
+    download_url = get_download_url(MODULE_NAME, PACKAGE_NAME),
+    packages = [PACKAGE_NAME],
     description = "Easy-to-use module for streamlined parsing of countries from locations",
     long_description = get_long_description_from_README(),
     long_description_content_type="text/markdown",
