@@ -46,7 +46,7 @@ This will create the virtual environment and install the requirements (viewable 
 Do the following to get the parser utilities, noting that creating an instance of `EasyCountryParser` will automatically download the country data payload from RESTcountries and set up all the resources. Speed will therefore depend on your internet connection, but the payload is not large.
 
 ```
-from easy_geoparsing.parser import EasyCountryParser
+from easy_geoparsing import EasyCountryParser
 
 ez_parser = EasyCountryParser()
 ```
