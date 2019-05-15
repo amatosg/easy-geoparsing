@@ -55,4 +55,4 @@ The parser is initialised with the following resources:
 
 The parser has the following methods for handling locations data:
 
-- .retrieve_country - parses plaintext for extractable 2-character ISO codes for countries (which can then be manipulated using the mappers above)
+- `.retrieve_country` - parses plaintext for extractable 2-character ISO codes for countries (which can then be manipulated using the mappers above)
