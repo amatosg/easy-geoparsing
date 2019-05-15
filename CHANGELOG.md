@@ -5,9 +5,13 @@ Change log
 
 - nothing currently planned
 
+### 1.0.2
+
+- _actually_ fixed broken setup.py
+
 ### 1.0.1
 
-- fixed broken setup.py
+- tried to fix broken setup.py
 
 ### 1.0.0
 
