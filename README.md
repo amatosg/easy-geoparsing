@@ -40,6 +40,7 @@ or, if you don't want to use our alternative names for some of the countries (i.
 The `EasyCountryParser` class provides utilities, based on the data from the RESTcountries API and the GeoText natural-language parser library, for easily extracting and handling country names and codes.
 
 ### PARSER PROPERTIES
+
     * `.data`       - pandas DataFrame containing RESTcountries data
     * `.tld_to_a2c` - python dict, maps TLDs to 2-character ISO codes
     * `.tld_to_a3c` - python dict, maps TLDs to 3-character ISO codes
@@ -49,4 +50,5 @@ The `EasyCountryParser` class provides utilities, based on the data from the RES
     * `.a3c_map`    - python dict, maps 3-char ISO codes to full names
 
 ### PARSER METHODS
+
     * `.retrieve_country` - parses plaintext for extractable 2-character ISO codes for countries (which can then be manipulated using the mappers above)
