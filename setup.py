@@ -27,9 +27,9 @@ def get_requirements():
     Read [packages] from the Pipfile and convert to a requirements list
     """
 
-    path = path.join(THIS_DIRECTORY, "Pipfile")
+    filepath = path.join(THIS_DIRECTORY, "Pipfile")
 
-    with open(path) as pipfile:
+    with open(filepath) as pipfile:
         pip_contents = pipfile.read()
 
     requirements_body = pip_contents.split("[packages]")[-1]
@@ -79,9 +79,9 @@ def get_long_description_from_README():
     """
     Returns the contents of README.md as a character string
     """
-    path = path.join(THIS_DIRECTORY, "README.md")
+    filepath = path.join(THIS_DIRECTORY, "README.md")
 
-    with open(path) as file_object:
+    with open(filepath) as file_object:
         long_description = file_object.read()
     return long_description
 
