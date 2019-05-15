@@ -1,3 +1,5 @@
+from os import path
+
 try:
     from setuptools import setup
 except ImportError:
@@ -36,8 +38,8 @@ def get_version(package_name):
     the value of __version__
     If not found, returns "0.0.1" and warns you to supply a version
     """
-    pkg_is_there = os.path.isdir(package_name)
-    file_is_there = os.path.isfile(package_name + "/__init__.py")
+    pkg_is_there = path.isdir(package_name)
+    file_is_there = path.isfile(package_name + "/__init__.py")
 
     if not pkg_is_there:
         raise FileNotFoundError(
@@ -84,6 +86,7 @@ setup(
     packages = ['easy_geoparsing'],
     description = 'Easy-to-use module for streamlined parsing of countries from locations',
     long_description = get_long_description_from_README(),
+    long_description_content_type="text/markdown",
     author = 'PaddyAlton',
     author_email = 'paddy.alton@apolitical.co'
 )
