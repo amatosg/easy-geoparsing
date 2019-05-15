@@ -29,7 +29,7 @@ def get_requirements():
 
     filepath = path.join(THIS_DIRECTORY, "Pipfile")
 
-    with open(filepath) as pipfile:
+    with open(filepath, "r+") as pipfile:
         pip_contents = pipfile.read()
 
     requirements_body = pip_contents.split("[packages]")[-1]
@@ -43,8 +43,11 @@ def get_version(package_name):
     the value of __version__
     If not found, returns "0.0.1" and warns you to supply a version
     """
-    pkg_is_there = path.isdir(package_name)
-    file_is_there = path.isfile(package_name + "/__init__.py")
+    package_path = path.join(THIS_DIRECTORY, package_name)
+    initfile_path = path.join(THIS_DIRECTORY, package_name, "__init__.py")
+
+    pkg_is_there = path.isdir(package_path)
+    file_is_there = path.isfile(initfile_path)
 
     if not pkg_is_there:
         raise FileNotFoundError(
@@ -60,7 +63,7 @@ def get_version(package_name):
             )
         )
 
-    with open(package_name + "/__init__.py") as pyinit:
+    with open(initfile_path, "r+") as pyinit:
         pyinit_cont = pyinit.read().split('\n')
 
     processed_contents = [
@@ -81,19 +84,19 @@ def get_long_description_from_README():
     """
     filepath = path.join(THIS_DIRECTORY, "README.md")
 
-    with open(filepath) as file_object:
+    with open(filepath, "r+") as file_object:
         long_description = file_object.read()
     return long_description
 
 setup(
-    name = 'easy-geoparsing',
-    version = get_version('easy_geoparsing'),
+    name = "easy-geoparsing",
+    version = get_version("easy_geoparsing"),
     install_requires = get_requirements(),
     download_url = "https://github.com/apolitical/easy-geoparsing/archive/v1.0.1.tar.gz",
-    packages = ['easy_geoparsing'],
-    description = 'Easy-to-use module for streamlined parsing of countries from locations',
+    packages = ["easy_geoparsing"],
+    description = "Easy-to-use module for streamlined parsing of countries from locations",
     long_description = get_long_description_from_README(),
     long_description_content_type="text/markdown",
-    author = 'PaddyAlton',
-    author_email = 'paddy.alton@apolitical.co'
+    author = "PaddyAlton",
+    author_email = "paddy.alton@apolitical.co"
 )
