@@ -43,16 +43,16 @@ The `EasyCountryParser` class provides utilities, based on the data from the RES
 
 The parser is initialised with the following resources:
 
-    - `.data`       - pandas DataFrame containing RESTcountries data
-    - `.tld_to_a2c` - python dict, maps TLDs to 2-character ISO codes
-    - `.tld_to_a3c` - python dict, maps TLDs to 3-character ISO codes
-    - `.iso2to3`    - python dict, maps 2-character ISO codes to 3
-    - `.iso3to2`    - python dict, maps 3-character ISO codes to 2
-    - `.a2c_map`    - python dict, maps 2-char ISO codes to full names
-    - `.a3c_map`    - python dict, maps 3-char ISO codes to full names
+  - `.data`       - pandas DataFrame containing RESTcountries data
+  - `.tld_to_a2c` - python dict, maps TLDs to 2-character ISO codes
+  - `.tld_to_a3c` - python dict, maps TLDs to 3-character ISO codes
+  - `.iso2to3`    - python dict, maps 2-character ISO codes to 3
+  - `.iso3to2`    - python dict, maps 3-character ISO codes to 2
+  - `.a2c_map`    - python dict, maps 2-char ISO codes to full names
+  - `.a3c_map`    - python dict, maps 3-char ISO codes to full names
 
 ### PARSER METHODS
 
 The parser has the following methods for handling locations data:
 
-- `.retrieve_country` - parses plaintext for extractable 2-character ISO codes for countries (which can then be manipulated using the mappers above)
+  - `.retrieve_country` - parses plaintext for extractable 2-character ISO codes for countries (which can then be manipulated using the mappers above)
