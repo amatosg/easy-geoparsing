@@ -1,5 +1,7 @@
 from os import path
 
+THIS_DIRECTORY = path.abspath(path.dirname(__file__))
+
 try:
     from setuptools import setup
 except ImportError:
@@ -24,7 +26,10 @@ def get_requirements():
     """
     Read [packages] from the Pipfile and convert to a requirements list
     """
-    with open("Pipfile") as pipfile:
+
+    path = path.join(THIS_DIRECTORY, "Pipfile")
+
+    with open(path) as pipfile:
         pip_contents = pipfile.read()
 
     requirements_body = pip_contents.split("[packages]")[-1]
@@ -74,7 +79,9 @@ def get_long_description_from_README():
     """
     Returns the contents of README.md as a character string
     """
-    with open("README.md") as file_object:
+    path = path.join(THIS_DIRECTORY, "README.md")
+
+    with open(path) as file_object:
         long_description = file_object.read()
     return long_description
 
@@ -82,7 +89,7 @@ setup(
     name = 'easy-geoparsing',
     version = get_version('easy_geoparsing'),
     install_requires = get_requirements(),
-    download_url = "https://github.com/apolitical/easy-geoparsing/archive/v1.0.0.tar.gz",
+    download_url = "https://github.com/apolitical/easy-geoparsing/archive/v1.0.1.tar.gz",
     packages = ['easy_geoparsing'],
     description = 'Easy-to-use module for streamlined parsing of countries from locations',
     long_description = get_long_description_from_README(),
