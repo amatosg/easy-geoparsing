@@ -5,6 +5,13 @@ Change log
 
 - nothing currently planned
 
+
+
+### 1.2.2
+
+- relaxed pandas dependency
+- changed version number to match release
+
 ### 1.0.2
 
 - _actually_ fixed broken setup.py
