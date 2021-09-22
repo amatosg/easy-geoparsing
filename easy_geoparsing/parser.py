@@ -41,7 +41,7 @@ class EasyCountryParser:
 
         """
 
-        self.data = pd.read_json("https://restcountries.eu/rest/v2/all")
+        self.data = pd.read_json("https://restcountries.com/v2/all")
         self.altnames = altnames
 
         self.get_codemaps()
