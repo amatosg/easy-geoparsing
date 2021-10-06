@@ -5,7 +5,7 @@ Easy-to-use module for streamlined parsing of countries from plaintext locations
 
 Implementation relies on:
 
-- the [RESTcountries](https://restcountries.eu/) API
+- the [RESTcountries](https://restcountries.com/) API
 - the [geotext](https://pypi.org/project/geotext/) module
 
 ## installation
